@@ -6,8 +6,8 @@ import "./App.css";
 const MOBILE_BREAKPOINT = 680;
 
 function useNarrowScreen() {
-  const [narrow, setNarrow] = useState(() =>
-    window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches,
+  const [narrow, setNarrow] = useState(
+    () => window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches,
   );
 
   useEffect(() => {
@@ -29,6 +29,7 @@ export default function App() {
         <Draw
           background="transparent"
           look="studio"
+          drawWhenMinimized
           placement={narrow ? "left" : "bottom"}
           inset={narrow ? 12 : 24}
           align="center"
